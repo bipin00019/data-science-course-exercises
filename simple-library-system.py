@@ -68,38 +68,96 @@ class Library():
         else:
             raise ValueError("by must be one of: 'title', 'author', 'isbn'")
         
+    def view_books (self) :
+        if not self.books:
+            print("No books available")
+            return
+        print("\nCurrent books :")
+        for book in self.books:
+            print(f"  -{book}")
+    
 # Example usage
 if __name__ == "__main__":
     library = Library()
 
-    b1 = PrintedBook("The Great Gatsby", "F. Scott Fitzgerald", "12345", pages=180)
-    b2 = EBook("Python Programming", "John Doe", "67890", file_size_mb=5.2)
-    b3 = EBook("Effective Python", "Brett Slatkin", "11111", file_size_mb=3.8)
-    b4 = PrintedBook("Python Crash Course", "Eric Matthes", "22222", pages=544)
+    while True :
+        print("Library ")
+        print("1. Add Printed Book")
+        print("2. Add E-Book")
+        print("3. Remove Book")
+        print("4. Search Book")
+        print("5. View All Books")
+        print("6. Exit")
 
-    library.add_book(b1)
-    library.add_book(b2)
-    library.add_book(b3)
-    library.add_book(b4)
+        choice = int(input("Enter (1-6) : ")) # strip method removes leading and trailing white spaces
 
-    dup = PrintedBook("Duplicate Try", "Some Author", "12345", pages=100)
-    library.add_book(dup)  # duplicate ISBN -> warning
+        match choice :
+            case 1:
+                title = input("Enter title : ")
+                author = input("Enter author : ")
+                isbn = input("Enter ISBN : ")
+                pages = int(input("Enter number of pages : "))
+                library.add_book(PrintedBook(title, author, isbn, pages))
+            
+            case 2 : 
+                title = input("Enter title : ")
+                author = input("Enter author : ")
+                isbn = input("Enter ISBN : ")
+                file_size_mb = float(input("Enter file size in mb : "))
+                library.add_book(EBook(title, author, isbn, file_size_mb))
 
-    print("\nSearch title contains 'Python':")
-    for book in library.search_book("Python", by="title"):
-        print("  -", book)
+            case 3 :
+                isbn = input("Enter ISBN to remove : ")
+                library.remove_book(isbn)
 
-    print("\nSearch author contains 'Brett':")
-    for book in library.search_book("Brett", by="author"):
-        print("  -", book)
+            case 4 :
+                search_type = input("Search by (title/author/isbn) : ").lower()
+                query = input("Enter search query : ")
+                results = library.search_book(query, by = search_type)
+                if results:
+                    print("\nSearch result : ")
+                    for book in results:
+                        print(f"  -{book}")
+                else :
+                    print("No matching books found")
 
-    print("\nSearch by ISBN '22222':")
-    for book in library.search_book("22222", by="isbn"):
-        print("  -", book)
+            case 5 :
+                library.view_books()
+            
+            case 6 :
+                print("\nExiting loops...")
+                break
 
-    print("\nRemoving ISBN '12345'...")
-    library.remove_book("12345")
+            case _:
+                print("Invalid input. Please try again.")
+    # b1 = PrintedBook("The Great Gatsby", "F. Scott Fitzgerald", "12345", pages=180)
+    # b2 = EBook("Python Programming", "John Doe", "67890", file_size_mb=5.2)
+    # b3 = EBook("Effective Python", "Brett Slatkin", "11111", file_size_mb=3.8)
+    # b4 = PrintedBook("Python Crash Course", "Eric Matthes", "22222", pages=544)
 
-    print("\nFinal Library Books:")
-    for book in library.books:
-        print("  -", book)
+    # library.add_book(b1)
+    # library.add_book(b2)
+    # library.add_book(b3)
+    # library.add_book(b4)
+
+    # dup = PrintedBook("Duplicate Try", "Some Author", "12345", pages=100)
+    # library.add_book(dup)  # duplicate ISBN -> warning
+
+    # print("\nSearch title contains 'Python':")
+    # for book in library.search_book("Python", by="title"):
+    #     print("  -", book)
+
+    # print("\nSearch author contains 'Brett':")
+    # for book in library.search_book("Brett", by="author"):
+    #     print("  -", book)
+
+    # print("\nSearch by ISBN '22222':")
+    # for book in library.search_book("22222", by="isbn"):
+    #     print("  -", book)
+
+    # print("\nRemoving ISBN '12345'...")
+    # library.remove_book("12345")
+
+    # print("\nFinal Library Books:")
+    # for book in library.books:
+    #     print("  -", book)
