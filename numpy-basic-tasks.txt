@@ -1,0 +1,248 @@
+1. List of NumPy Methods (Commonly Used)
+
+NumPy has hundreds of functions, but here’s a structured list of the most important ones, grouped by category:
+
+Array Creation
+
+np.array()
+
+np.zeros()
+
+np.ones()
+
+np.empty()
+
+np.arange()
+
+np.linspace()
+
+np.logspace()
+
+np.eye()
+
+np.identity()
+
+np.full()
+
+np.random.rand()
+
+np.random.randn()
+
+np.random.randint()
+
+np.random.random()
+
+np.random.choice()
+
+
+
+Array Inspection
+
+.ndim → number of dimensions
+
+.shape → dimensions (rows, cols)
+
+.size → number of elements
+
+.dtype → data type of array
+
+.itemsize → size of each element in bytes
+
+.nbytes → total bytes consumed
+
+
+
+Array Manipulation
+
+np.reshape()
+
+np.resize()
+
+np.ravel()
+
+.flatten()
+
+np.transpose() / .T
+
+np.swapaxes()
+
+np.expand_dims()
+
+np.squeeze()
+
+np.concatenate()
+
+np.vstack()
+
+np.hstack()
+
+np.split()
+
+np.array_split()
+
+
+
+Mathematical Operations
+
+np.add(), np.subtract(), np.multiply(), np.divide(), np.power()
+
+np.mod(), np.remainder()
+
+np.exp(), np.log(), np.log10()
+
+np.sqrt()
+
+np.sin(), np.cos(), np.tan()
+
+np.arcsin(), np.arccos(), np.arctan()
+
+np.deg2rad(), np.rad2deg()
+
+np.floor(), np.ceil(), np.round()
+
+
+
+Statistical & Aggregate Functions
+
+np.sum()
+
+np.mean()
+
+np.median()
+
+np.std()
+
+np.var()
+
+np.min(), np.max()
+
+np.argmin(), np.argmax()
+
+np.cumsum(), np.cumprod()
+
+np.percentile()
+
+np.corrcoef()
+
+np.histogram()
+
+
+
+Linear Algebra
+
+np.dot()
+
+np.vdot()
+
+np.inner(), np.outer()
+
+np.matmul() (@ operator)
+
+np.linalg.inv() → inverse
+
+np.linalg.det() → determinant
+
+np.linalg.eig() → eigenvalues/eigenvectors
+
+np.linalg.svd() → singular value decomposition
+
+np.linalg.norm()
+
+
+
+Set Operations
+
+np.unique()
+
+np.intersect1d()
+
+np.union1d()
+
+np.setdiff1d()
+
+np.setxor1d()
+
+np.in1d()
+
+np.isin()
+
+
+
+Logical Operations
+
+np.all()
+
+np.any()
+
+np.where()
+
+np.logical_and(), np.logical_or(), np.logical_not()
+
+np.equal(), np.greater(), np.less()
+
+
+
+File I/O
+
+np.loadtxt()
+
+np.savetxt()
+
+np.genfromtxt()
+
+np.save()
+
+np.load()
+
+np.savez()
+
+np.fromfile()
+
+np.tofile()
+
+
+
+Random Module (np.random)
+
+np.random.seed()
+
+np.random.shuffle()
+
+np.random.permutation()
+
+np.random.normal()
+
+np.random.uniform()
+
+np.random.binomial()
+
+np.random.poisson()
+
+np.random.beta()
+
+np.random.gamma()
+
+
+10 NumPy Basics Questions
+
+Here are beginner-friendly questions:
+
+Create a NumPy array of numbers from 10 to 50.
+
+Generate a 3×3 identity matrix.
+
+Create a NumPy array of 10 random integers between 1 and 100.
+
+Find the maximum and minimum of an array.
+
+Reshape a 1D array of 12 elements into a 3×4 matrix.
+
+Create an array of all even numbers between 50 and 100.
+
+Given an array [1,2,3,4,5], compute the square of each element.
+
+Create a 5×5 array of random numbers and find its mean.
+
+Find the index of the maximum element in [10, 20, 50, 40, 30].
+
+Create two arrays and perform element-wise addition, subtraction, multiplication, and division.
